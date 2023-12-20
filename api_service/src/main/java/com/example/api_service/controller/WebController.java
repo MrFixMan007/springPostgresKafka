@@ -37,13 +37,6 @@ public class WebController {
         return responseEntity.getBody();
     }
 
-//    @GetMapping("/getBooksByCountry")
-//    private List<BookDto> getBooksByCountry(@RequestParam(value = "country") String country) {
-//        String receiverUrl = "http://data-service:8080/receiver/getBooksByCountry?country="+country;
-//        ResponseEntity<List<BookDto>> responseEntity = restTemplate.exchange(receiverUrl, HttpMethod.GET, null, new ParameterizedTypeReference<List<BookDto>>() {});
-//        return responseEntity.getBody();
-//    }
-
     @GetMapping("/getBooksByCountry")
     private ModelAndView getBooksByCountry(@RequestParam(value = "country") String country) {
         String receiverUrl = "http://data-service:8080/receiver/getBooksByCountry?country="+country;
@@ -54,13 +47,6 @@ public class WebController {
 
         return modelAndView;
     }
-
-//    @GetMapping("/getAllFirstNames")
-//    private List<String> getAllFirstNames() {
-//        String receiverUrl = "http://data-service:8080/receiver/getAllFirstNames";
-//        ResponseEntity<List<String>> responseEntity = restTemplate.exchange(receiverUrl, HttpMethod.GET, null, new ParameterizedTypeReference<List<String>>() {});
-//        return responseEntity.getBody();
-//    }
 
     @GetMapping("/getAllFirstNames")
     private ModelAndView getAllFirstNames() {
