@@ -1,0 +1,80 @@
+CREATE TABLE IF NOT EXISTS public.authors (
+    id SERIAL PRIMARY KEY,
+    first_nameid integer,
+    second_nameid integer
+);
+CREATE TABLE IF NOT EXISTS public.books (
+    id SERIAL PRIMARY KEY,
+    name character varying(255),
+    countryid integer,
+    authorid integer,
+    genreid integer
+);
+CREATE TABLE IF NOT EXISTS public.countries (
+    id SERIAL PRIMARY KEY,
+    value character varying(255)
+);
+CREATE TABLE IF NOT EXISTS public.first_names (
+    id SERIAL PRIMARY KEY,
+    value character varying(255)
+);
+CREATE TABLE IF NOT EXISTS public.genres (
+    id SERIAL PRIMARY KEY,
+    value character varying(55) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS public.second_names (
+    id SERIAL PRIMARY KEY,
+    value character varying(255)
+);
+INSERT INTO public.countries (id, value) VALUES
+	(1, 'United Kingdom'),
+	(2, 'USA'),
+	(3, 'Russia');
+
+INSERT INTO public.first_names (id, value) VALUES
+    (1, 'John'),
+	(2, 'Jane'),
+	(3, 'Philip'),
+	(4, 'Douglas'),
+	(5, 'Joanne'),
+	(6, 'Harpet'),
+	(7, 'Alan'),
+	(8, 'George');
+
+INSERT INTO public.genres (id, value) VALUES
+	(1, 'Fantasy'),
+	(2, 'Romance'),
+	(3, 'Comic science'),
+	(4, 'Southern Gothic'),
+	(5, 'Childrens literature'),
+	(6, 'Dystopian');
+
+INSERT INTO public.second_names (id, value) VALUES
+	(1, 'Tolkien'),
+	(2, 'Austen'),
+	(3, 'Pullman'),
+	(4, 'Adams'),
+	(5, 'Rowling'),
+	(6, 'Lee'),
+	(7, 'Milne'),
+	(8, 'Orwell');
+
+INSERT INTO public.authors (id, first_nameid, second_nameid) VALUES
+	(1, 1, 1),
+	(2, 2, 2),
+	(3, 3, 3),
+	(4, 4, 4),
+	(5, 5, 5),
+	(6, 6, 6),
+	(7, 7, 7),
+	(8, 8, 8);
+
+INSERT INTO  public.books (id, name, countryid, authorid, genreid) VALUES
+	(1, 'The Lord of the Rings',	1,	1,	1),
+	(2, 'Pride and Prejudice',	1,	2,	2),
+	(3, 'His Dark Materials',	1,	3,	1),
+	(4, 'The Hitchhikers Guide to the Galaxy',	1,	4,	3),
+	(5, 'Harry Potter and the Goblet of Fire',	1,	5,	1),
+	(6, 'To Kill a Mockingbird',	2,	6,	4),
+	(7, 'Winnie-the-Pooh',	1,	7,	5),
+    (8, '1984', 1, 8, 6);
